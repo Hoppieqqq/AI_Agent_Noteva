@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+- Refined the sidebar UX with memory management and prompt reuse improvements.
+- Expanded the README and aligned the published package with the current implementation state.
+
 ## 1.0.2
 - Removed the brittle tag-version verification step from the GitHub release workflow so tagged releases can publish artifacts reliably.
 

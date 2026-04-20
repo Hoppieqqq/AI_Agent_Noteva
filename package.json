@@ -1,6 +1,6 @@
 ﻿{
     "name":  "noteva-ai-agent",
-    "version":  "1.0.2",
+    "version":  "1.0.3",
     "description":  "Graph-aware AI Agent for Obsidian powered by OpenRouter and Noteva AI workflows.",
     "main":  "main.js",
     "scripts":  {

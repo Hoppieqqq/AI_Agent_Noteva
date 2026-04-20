@@ -1,36 +1,65 @@
 # Noteva AI Agent for Obsidian
 
-Graph-aware AI sidebar plugin for Obsidian, adapted from the AI Agent architecture used in Noteva.
+Noteva AI Agent is a graph-aware OpenRouter chat plugin for Obsidian. It brings persistent multi-chat workflows, vault context, backlinks, linked-note awareness, memory, and safe note-writing actions into a native Obsidian sidebar.
 
-## Implemented
-- Left-sidebar `ItemView` with ribbon button and commands
-- Persistent multi-chat storage with create, rename, delete, search, and clear
-- OpenRouter integration with:
-  - API key storage via Obsidian secret storage when available
-  - model list refresh
-  - manual model override
-  - streaming responses
-  - connection test
-- Context modes:
-  - no context
-  - current note
-  - current note + linked notes
-  - current note + backlinks
-  - current folder
-  - vault-wide context
-  - graph neighborhood
-- Graph-aware vault index using Obsidian `metadataCache`
-- Memory panel with add, edit, delete, and clear
-- Note tools:
-  - find related notes
+## What it does
+- Opens a dedicated AI sidebar view from the left ribbon
+- Stores multiple chats locally inside the plugin data folder
+- Streams OpenRouter responses into the chat UI
+- Understands Obsidian structure through:
+  - current note context
+  - linked notes
   - backlinks
-  - topic map
-  - wikilink suggestions
-  - orphan notes
-  - create MOC note
-  - create note
-  - append to note
-- Confirmation modal before AI writes to notes
+  - current folder
+  - vault-wide note selection
+  - graph neighborhood traversal
+- Lets the agent use note tools to:
+  - find related notes
+  - inspect backlinks
+  - build a topic map
+  - suggest missing wikilinks
+  - find orphan notes
+  - create MOC notes
+  - create new notes
+  - append content to existing notes
+- Requires confirmation before AI writes to notes
+- Maintains manual and extracted memory facts that can be injected into future prompts
+
+## Installation
+
+### From GitHub release
+Download these files from the latest release and place them in:
+
+```text
+<Vault>/.obsidian/plugins/noteva-ai-agent/
+```
+
+Required files:
+- `main.js`
+- `manifest.json`
+- `styles.css`
+
+Then open Obsidian and enable **Noteva AI Agent** in Community Plugins.
+
+### For local development
+```bash
+npm install
+npm run dev
+```
+
+For a production build:
+```bash
+npm run build
+```
+
+For faster local iteration, use the Obsidian Hot Reload plugin by pjeby.
+
+## Setup
+1. Open the plugin settings
+2. Paste your OpenRouter API key
+3. Refresh the model list or enter a model manually
+4. Choose the context mode you want
+5. Start a new chat from the sidebar
 
 ## Commands
 - `Open AI Agent`
@@ -38,27 +67,6 @@ Graph-aware AI sidebar plugin for Obsidian, adapted from the AI Agent architectu
 - `Summarize current note`
 - `Explain selection`
 - `Find related notes`
-
-## Local development
-```bash
-npm install
-npm run dev
-```
-
-For a production bundle:
-```bash
-npm run build
-```
-
-Copy or symlink these files into your vault:
-```text
-<Vault>/.obsidian/plugins/noteva-ai-agent/
-  main.js
-  manifest.json
-  styles.css
-```
-
-For smoother local iteration, use the Obsidian Hot Reload plugin by pjeby.
 
 ## Settings
 - OpenRouter API key
@@ -79,11 +87,17 @@ For smoother local iteration, use the Obsidian Hot Reload plugin by pjeby.
 - Rebuild index
 - Test OpenRouter connection
 
+## Storage and privacy
+- Chat data and settings are stored locally in the plugin data folder
+- The API key is stored through Obsidian secret storage when available, with a local fallback
+- No telemetry is included
+- Requests go only to OpenRouter when you send a message or refresh models
+
 ## Current scope
-This plugin intentionally ports the Noteva AI Agent core without calendar tools. It is focused on vault context, graph awareness, memory, and note operations.
+This plugin ports the Noteva AI Agent core into Obsidian. Calendar tools are intentionally excluded in this plugin and note-aware tools are prioritized instead.
 
 ## Release artifacts
-GitHub releases must attach:
+GitHub releases attach:
 - `main.js`
 - `manifest.json`
 - `styles.css`

@@ -109,6 +109,7 @@ const AgentApp = ({ plugin }: AgentAppProps): React.JSX.Element => {
   }, [chats, search])
 
   const activeChat = React.useMemo(() => (activeChatId ? plugin.repository.getChat(activeChatId) : null), [activeChatId, chats, plugin])
+  const lastUserMessage = React.useMemo(() => activeChat?.messages.filter((message) => message.role === 'user').at(-1) ?? null, [activeChat])
 
   const ensureChat = React.useCallback(async (): Promise<string> => {
     if (activeChatId) {
@@ -230,6 +231,17 @@ const AgentApp = ({ plugin }: AgentAppProps): React.JSX.Element => {
             </div>
           </div>
           <div className="noteva-ai-toolbar-actions">
+            <button
+              type="button"
+              onClick={() => {
+                if (lastUserMessage) {
+                  setInput(lastUserMessage.content)
+                }
+              }}
+              disabled={!lastUserMessage}
+            >
+              Reuse prompt
+            </button>
             <button type="button" onClick={() => plugin.openSettingsTab()}>
               Settings
             </button>
