@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.1
+- Fixed the GitHub release workflow to validate tag versions reliably on tag pushes.
+
 ## 1.0.0
 - Initial public MVP for the Noteva AI Agent Obsidian plugin.
 - Added a persistent sidebar chat view with multi-chat storage.
