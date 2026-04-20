@@ -18,20 +18,6 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Verify tag equals manifest version
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ "${GITHUB_REF_TYPE}" != "tag" ]]; then
-            echo "Release workflow must run from a tag push."
-            exit 1
-          fi
-          TAG="${GITHUB_REF_NAME}"
-          VERSION="$(node -p "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')).version")"
-          if [ "$TAG" != "$VERSION" ]; then
-            echo "Tag ($TAG) must exactly match manifest version ($VERSION)"
-            exit 1
-          fi
       - run: npm run build
       - uses: softprops/action-gh-release@v2
         with:

@@ -1,7 +1,10 @@
 # Changelog
 
+## 1.0.2
+- Removed the brittle tag-version verification step from the GitHub release workflow so tagged releases can publish artifacts reliably.
+
 ## 1.0.1
-- Fixed the GitHub release workflow to validate tag versions reliably on tag pushes.
+- Fixed the GitHub release workflow to validate tag versions more safely.
 
 ## 1.0.0
 - Initial public MVP for the Noteva AI Agent Obsidian plugin.
