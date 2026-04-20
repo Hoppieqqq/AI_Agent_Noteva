@@ -1,0 +1,267 @@
+:root {
+  --noteva-ai-border: var(--background-modifier-border);
+  --noteva-ai-accent-muted: color-mix(in srgb, var(--interactive-accent) 12%, var(--background-primary));
+  --noteva-ai-panel: var(--background-secondary);
+}
+
+.noteva-ai-agent-view,
+.noteva-ai-agent-root {
+  height: 100%;
+}
+
+.noteva-ai-agent-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 280px;
+  height: 100%;
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+
+.noteva-ai-agent-sidebar,
+.noteva-ai-memory-panel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--noteva-ai-panel);
+}
+
+.noteva-ai-agent-sidebar {
+  border-right: 1px solid var(--noteva-ai-border);
+}
+
+.noteva-ai-memory-panel {
+  border-left: 1px solid var(--noteva-ai-border);
+}
+
+.noteva-ai-agent-main {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.noteva-ai-toolbar,
+.noteva-ai-inputbar,
+.noteva-ai-chatlist-header,
+.noteva-ai-memory-header,
+.noteva-ai-memory-footer {
+  padding: 12px;
+  border-bottom: 1px solid var(--noteva-ai-border);
+}
+
+.noteva-ai-toolbar,
+.noteva-ai-chatlist-header-row,
+.noteva-ai-memory-header,
+.noteva-ai-toolbar-actions,
+.noteva-ai-chatlist-actions,
+.noteva-ai-inputbar-actions,
+.noteva-ai-memory-item-actions,
+.noteva-ai-modal-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.noteva-ai-toolbar {
+  justify-content: space-between;
+}
+
+.noteva-ai-toolbar-subtitle,
+.noteva-ai-input-meta,
+.noteva-ai-memory-subtitle,
+.noteva-ai-message-footer,
+.noteva-ai-context-banner,
+.noteva-ai-chatlist-trigger small,
+.noteva-ai-memory-item-meta {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.noteva-ai-chatlist-header,
+.noteva-ai-memory-header,
+.noteva-ai-memory-footer {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.noteva-ai-search,
+.noteva-ai-modal-input,
+.noteva-ai-inputbar textarea {
+  width: 100%;
+  border: 1px solid var(--noteva-ai-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+
+.noteva-ai-inputbar textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.noteva-ai-chatlist,
+.noteva-ai-memory-list,
+.noteva-ai-messages {
+  overflow: auto;
+  min-height: 0;
+}
+
+.noteva-ai-chatlist,
+.noteva-ai-memory-list {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noteva-ai-chatlist-empty,
+.noteva-ai-memory-empty,
+.noteva-ai-empty-state {
+  border: 1px dashed var(--noteva-ai-border);
+  border-radius: 12px;
+  padding: 14px;
+  color: var(--text-muted);
+  background: var(--background-primary-alt);
+}
+
+.noteva-ai-chatlist-item,
+.noteva-ai-memory-item {
+  border: 1px solid transparent;
+  background: var(--background-primary);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.noteva-ai-chatlist-item.is-active {
+  background: var(--noteva-ai-accent-muted);
+  border-color: var(--interactive-accent);
+}
+
+.noteva-ai-chatlist-trigger {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.noteva-ai-chatlist-actions,
+.noteva-ai-memory-item-actions {
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
+.noteva-ai-messages {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.noteva-ai-message {
+  border: 1px solid var(--noteva-ai-border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--background-primary-alt);
+}
+
+.noteva-ai-message--user {
+  background: var(--noteva-ai-accent-muted);
+}
+
+.noteva-ai-message--tool {
+  background: color-mix(in srgb, var(--text-accent) 10%, var(--background-primary));
+}
+
+.noteva-ai-message-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.noteva-ai-message-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.noteva-ai-message-footer + .noteva-ai-message-footer {
+  margin-top: 2px;
+}
+
+.noteva-ai-context-banner {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.noteva-ai-inputbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.noteva-ai-input-wrap {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noteva-ai-input-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.noteva-ai-inputbar-actions {
+  align-items: stretch;
+}
+
+.noteva-ai-inputbar-actions button {
+  min-width: 88px;
+}
+
+.noteva-ai-memory-item-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+.noteva-ai-modal-actions {
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+@media (max-width: 1280px) {
+  .noteva-ai-agent-shell {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .noteva-ai-memory-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .noteva-ai-agent-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .noteva-ai-agent-sidebar {
+    display: none;
+  }
+}

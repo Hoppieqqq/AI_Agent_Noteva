@@ -1,0 +1,10 @@
+﻿{
+  "id": "noteva-ai-agent",
+  "name": "Noteva AI Agent",
+  "version": "1.0.0",
+  "minAppVersion": "1.11.4",
+  "description": "Graph-aware OpenRouter chat agent for Obsidian with persistent chats, memory, and vault context.",
+  "author": "Hoppieqqq",
+  "authorUrl": "https://github.com/Hoppieqqq",
+  "isDesktopOnly": false
+}
