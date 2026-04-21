@@ -1,4 +1,4 @@
-﻿# I am submitting a new Community Plugin
+# I am submitting a new Community Plugin
 
 - [x] I attest that I have done my best to deliver a high-quality plugin, am proud of the code I have written, and would recommend it to others. I commit to maintaining the plugin and being responsive to bug reports. If I am no longer able to maintain it, I will make reasonable efforts to find a successor maintainer or withdraw the plugin from the directory.
 
@@ -30,4 +30,4 @@ Notes:
 - The plugin is a graph-aware OpenRouter AI sidebar for Obsidian.
 - It stores settings and chats locally, uses Obsidian secret storage when available, and does not include telemetry.
 - It intentionally excludes calendar tools and focuses on vault context, backlinks, wikilinks, graph-aware context, memory, and note tools.
-- Latest release: https://github.com/Hoppieqqq/AI_Agent_Noteva/releases/tag/1.0.3
+- Latest release: https://github.com/Hoppieqqq/AI_Agent_Noteva/releases/tag/1.0.4
